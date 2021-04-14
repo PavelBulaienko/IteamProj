@@ -1,0 +1,27 @@
+<div class="timerBtnContainer">
+  <button class="timerBtn" (click)="onStartStopBtnClick()">Start / Stop</button>
+  <button class="timerBtn" (click)="onWaitBtnClick()">Wait</button>
+  <button class="timerBtn" (click)="onResetBtnClick()">Reset</button>
+</div>
+
+<div class="timer" id="timer">
+  <div class="field">
+    <span class="value" data-value="days" #days>00</span>
+    <span class="label">Days</span>
+  </div>
+
+  <div class="field">
+    <span class="value" data-value="hours" #hours>00</span>
+    <span class="label">Hours</span>
+  </div>
+
+  <div class="field">
+    <span class="value" data-value="mins" #mins>00</span>
+    <span class="label">Minutes</span>
+  </div>
+
+  <div class="field">
+    <span class="value" data-value="secs" #secs>00</span>
+    <span class="label">Seconds</span>
+  </div>
+</div>
