@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, timer } from 'rxjs';
 
 @Component({
   selector: 'app-buttons',
@@ -39,17 +39,29 @@ export class ButtonsComponent implements OnInit {
     }
   }
   onWaitBtnClick() {
+    // if (this.clickOnWait) {
+    //   clearTimeout(this.dblClickTimeout);
+    //   if (this.isTimerWorking === true && this.clickOnWait) {
+    //     this.offTimer();
+    //     this.tempraryCounter = this.counter;
+    //   }
+    // }
+    // this.clickOnWait = true;
+    // this.dblClickTimeout = setTimeout(() => {
+    //   this.clickOnWait = false;
+    // }, 300);
+
     if (this.clickOnWait) {
-      clearTimeout(this.dblClickTimeout);
       if (this.isTimerWorking === true && this.clickOnWait) {
         this.offTimer();
         this.tempraryCounter = this.counter;
       }
     }
     this.clickOnWait = true;
-    this.dblClickTimeout = setTimeout(() => {
+    const waitForClickOnBtn = timer(300);
+    waitForClickOnBtn.subscribe(() => {
       this.clickOnWait = false;
-    }, 300);
+    });
   }
   onResetBtnClick() {
     this.counter = 0;
